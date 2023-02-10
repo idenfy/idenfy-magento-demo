@@ -1,0 +1,5 @@
+#!/bin/bash
+## Description: MageRun CLI tool
+## Usage: mr <options> <arguments>
+## Example: "ddev mr"
+/usr/bin/mr $@

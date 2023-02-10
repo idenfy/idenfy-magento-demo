@@ -1,0 +1,3 @@
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+RUN wget https://files.magerun.net/n98-magerun2.phar && mv n98-magerun2.phar /usr/bin/mr && chmod +x /usr/bin/mr;

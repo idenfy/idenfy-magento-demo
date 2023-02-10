@@ -1,0 +1,52 @@
+#!/bin/bash
+## Description: Run update sequences in the web container
+## Usage: update
+## Example: "ddev update"
+## Flags: [{"Name":"di-compile", "Shorthand":"c","Usage":"Also runs DI compilation"}]
+source "$(dirname "$0")/common.sh"
+
+# Process parameters, if something not allowed the script exists.
+SHORT_OPTS=c
+LONG_OPTS=di-compile
+params="$(getopt --options $SHORT_OPTS --longoptions $LONG_OPTS --name "$0" -- "$@")" || exit
+eval set -- "$params"
+
+COMPILE_DI=0
+while true
+do
+    case $1 in
+        -c|--di-compile)
+            COMPILE_DI=1
+            shift
+            break
+            ;;
+        --)
+            shift
+            break
+            ;;
+    esac
+done
+
+log "\e[36m--------- Updating packages & site ---------\e[39m"
+
+cd "${PWD}" || exit 1;
+
+# This piece will always run.
+log "Installing composer dependencies (with development dependencies)."
+composer install --no-interaction --no-progress --apcu-autoloader || exit 1;
+log "Composer packages are installed"
+
+if [[ COMPILE_DI -eq 1 ]]; then
+    log "Compiling DI"
+    bin/magento setup:di:compile
+else
+    log "Skipping DI compilation"
+fi
+
+log "Running database and config updates"
+
+bin/magento setup:upgrade
+
+log "Database and configuration updates are finished"
+log "\e[36m--------- Packages and database is updated ---------\e[39m"
+

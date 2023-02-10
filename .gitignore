@@ -1,0 +1,61 @@
+# Exclude root files, but not directories
+/*
+!*/
+
+!composer.*
+!.gitignore
+!README.md
+!grumphp.yml
+/.github/
+
+/app/etc/*
+!/app/etc/config.php
+/app/design/*/Magento
+/app/i18n/magento
+/app/*.*
+
+# Editor
+/.zfproject.xml
+/.buildpath
+/.cache
+/.metadata
+/.project
+/.settings/
+/nbproject/
+/.idea/
+/.csscomb.json
+/.phpstorm.meta.php
+
+# OS files
+__MACOSX/
+[Tt]humbs.db
+*.DS_Store
+
+# Composer
+/bin
+
+# Node
+/node_modules
+
+# Docker
+/docker
+
+# Adds the custom themes to grunt
+!/grunt-config.json
+/dev/*
+!/dev/tools
+/dev/tools/*
+!/dev/tools/grunt
+/dev/tools/grunt/*
+!/dev/tools/grunt/configs
+/dev/tools/grunt/configs/*
+!/dev/tools/grunt/configs/pauw-themes.js
+
+/lib
+/generated
+/update
+/phpserver
+/pub
+/setup
+/var
+/vendor
