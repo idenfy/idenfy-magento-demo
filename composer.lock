@@ -2044,7 +2044,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Skullsneeze/idenfy-magento2.git",
-                "reference": "a97f1a4e004fd854574f9f7bb476ed99ba87dd4b"
+                "reference": "061cbc4775f4be2474917fbcb4ca03dd1e0bd7d3"
             },
             "require": {
                 "magento/framework": "*",
@@ -2064,7 +2064,7 @@
                 "Massachusetts Institute of Technology License (MITL)"
             ],
             "description": "Plugin which is used to verify customers using the Idenfy API",
-            "time": "2023-02-10T10:41:24+00:00"
+            "time": "2023-02-14T10:57:45+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
